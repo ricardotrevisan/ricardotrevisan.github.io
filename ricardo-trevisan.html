@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ricardo Trevisan - Currículo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header-subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95em;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item::before {
+            content: '▸';
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 60px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #1e3c72;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #764ba2;
+        }
+
+        .summary {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+
+        .objective {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .experience-item {
+            margin-bottom: 35px;
+            padding-left: 20px;
+            border-left: 2px solid #e0e0e0;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: #667eea;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px white, 0 0 0 5px #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .company-name {
+            font-size: 1.4em;
+            color: #1e3c72;
+            font-weight: 600;
+        }
+
+        .role {
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .period {
+            color: #666;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .experience-item li {
+            padding-left: 25px;
+            margin-bottom: 10px;
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .experience-item li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .skill-category li::before {
+            content: '✦';
+            color: #764ba2;
+            margin-right: 10px;
+        }
+
+        .education-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .education-item strong {
+            color: #1e3c72;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .education-item span {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .content {
+                padding: 40px 30px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+
+        .page-break {
+            page-break-after: always;
+            break-after: always;
+        }
+
+        .avoid-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .header::before {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .experience-item {
+                page-break-inside: avoid;
+            }
+
+            .page-break {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Ricardo Trevisan</h1>
+                <p class="header-subtitle">Executivo em Tecnologia & Inovação Digital | 20+ anos em Transformação Digital</p>
+                <div class="contact-info">
+                    <div class="contact-item">44 anos</div>
+                    <div class="contact-item"><a href="tel:+5511975196655">(11) 9.7519-6655</a></div>
+                    <div class="contact-item"><a href="mailto:contato@ricardotrevisan.com.br">contato@ricardotrevisan.com.br</a></div>
+                    <div class="contact-item"><a href="https://linkedin.com/in/ricardo-trevisan" target="_blank">linkedin.com/in/ricardo-trevisan</a></div>
+                    <div class="contact-item"><a href="https://github.com/ricardotrevisan" target="_blank">github.com/ricardotrevisan</a></div>
+                    <div class="contact-item"><a href="" target="_blank">github.com/ricardotrevisan</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Perfil Profissional</h2>
+                <p class="summary">
+                    Executivo hands-on e disseminador de novas tecnologias, com 20+ anos integrando engenharia, estratégia e liderança. Especialista em transformação digital de portfólios, produtos digitais e pré-vendas, gerando incremento de receita, eficiência operacional e inovação em serviços digitais. Combina visão estratégica de negócios com inovação tecnológica, aplicando Inteligência Artificial, automação de decisões e engenharia de software avançada.
+                </p>
+            </div>
+
+            <!-- <div class="page-break"></div> -->
+
+            <div class="section">
+                <h2 class="section-title">Objetivo</h2>
+                <div class="objective">
+                    Atuar em posição de liderança em Arquitetura e Novas Tecnologias, aplicando IA e engenharia de software avançada para automatizar decisões, aumentar eficiência e criar soluções digitais inovadoras.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Experiência Profissional</h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company-name">Quant Digital</div>
+                            <div class="role">Fundador</div>
+                        </div>
+                        <div class="period">2025 – Atual</div>
+                    </div>
+                    <ul>
+                        <li>Desenvolvimento de trading algorítmico usando modelos estocásticos e deep learning em séries temporais de preços e indicadores</li>
+                        <li>Exploração de IA autônoma, interfaces conversacionais (zero UI friction) e NLP para novos produtos digitais</li>
+                        <li>Implementação de estratégias quantitativas com foco em otimização de performance</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company-name">Crediativos / MGC Capital</div>
+                            <div class="role">Diretor de Tecnologia</div>
+                        </div>
+                        <div class="period">2021 – 2025</div>
+                    </div>
+                    <ul>
+                        <li>Liderança estratégica e tática do Ecossistema Crediativos, servindo empresas parceiras em cobrança e engajamento digital</li>
+                        <li>Implementação de metodologia Ágil com Squads orientadas por desafio</li>
+                        <li>Implantação de Privacy-by-Design atendendo ao DPO e alinhado à LGPD</li>
+                        <li>Otimização de cloud: redução de custo, aumento de eficiência e compliance para Fundos NPL</li>
+                        <li>Desenvolvimento de canais digitais híbridos, com personalização baseada em analytics e comportamento do usuário</li>
+                        <li>Estratégia de integração omnichannel e oferta dinâmica de serviços digitais</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company-name">Boa Vista Serviços</div>
+                            <div class="role">Superintendente de Soluções</div>
+                        </div>
+                        <div class="period">2011 – 2019</div>
+                    </div>
+                    <ul>
+                        <li>Gestão de times de Tecnologia e Produto na Decision Analytics (DA)</li>
+                        <li>Crescimento anual de dois dígitos na DA (2015–2019), replicando soluções em múltiplos bancos e financeiras</li>
+                        <li>Desenvolvimento de Cobrança Digital escalável e replicável</li>
+                        <li>Plataforma Avalie Crédito: integração end-to-end, customização de fluxos e decisão de risco de crédito</li>
+                        <li>MultiScore: modelos preditivos híbridos combinando dados comportamentais e transacionais em real-time scoring</li>
+                        <li>Radar Pessoal – D2C: análise antifraude, precificação e posicionamento de mercado</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company-name">Serasa Experian</div>
+                            <div class="role">Gerente de Soluções</div>
+                        </div>
+                        <div class="period">2000 – 2010</div>
+                    </div>
+                    <ul>
+                        <li>Arquitetura e desenvolvimento de produtos digitais de informação</li>
+                        <li>Criação de soluções como Factorings Comportamental e Empresas e Grupos de Segmento, consolidando a Serasa como referência nacional em decisão de risco</li>
+                        <li>Atuação na criação da primeira Autoridade Certificadora Digital Privada SPB-Brasil</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="company-name">Prescritor.com</div>
+                            <div class="role">Desenvolvedor</div>
+                        </div>
+                        <div class="period">1998 – 2000</div>
+                    </div>
+                    <ul>
+                        <li>Desenvolvimento de portal de saúde, com foco em publicações científicas e referência para especialidades médicas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Habilidades e Competências</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Hard Skills</h3>
+                        <ul>
+                            <li>Versatilidade: Java, Python, Node, etc.</li>
+                            <li>Modelos Estocásticos, Deep Learning, NLP</li>
+                            <li>Arquitetura em Cloud e Microserviços</li>
+                            <li>Ingestão e Qualificação de Dados</li>
+                            <li>Automação de Processos de Decisão</li>
+                            <li>SDLC e Metodologias Ágeis</li>
+                            <li>Gestão de Portfólio Tecnológico</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <ul>
+                            <li>Liderança de times multidisciplinares</li>
+                            <li>Early Adopter de tecnologias emergentes</li>
+                            <li>Disseminador de novas tecnologias e paradigmas</li>
+                            <li>Estratégia de Produtos Digitais</li>
+                            <li>Inovação Tecnológica</li>
+                            <li>Pré-Vendas e relacionamento estratégico</li>
+                            <li>Visão de Negócios e Mercado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Formação Acadêmica</h2>
+                <div class="education-item">
+                    <strong>Fundação Getulio Vargas (FGV)</strong>
+                    <span>MBA em Gestão Empresarial, 2019</span>
+                </div>
+                <div class="education-item">
+                    <strong>Fundação Getulio Vargas (FGV)</strong>
+                    <span>Extensão em Economia e Finanças, 2007</span>
+                </div>
+                <div class="education-item">
+                    <strong>Massachusetts Institute of Technology (MIT)</strong>
+                    <span>Especialização em Modelagem de Dados, Total Data Quality Management, 2006</span>
+                </div>
+                <div class="education-item">
+                    <strong>ESPM</strong>
+                    <span>MBA em Marketing, 2006</span>
+                </div>
+                <div class="education-item">
+                    <strong>FIAP</strong>
+                    <span>Pós-Graduação em Tecnologia da Informação, Component Engineering and Web Services, 2004</span>
+                </div>
+                <div class="education-item">
+                    <strong>Universidade Presbiteriana Mackenzie</strong>
+                    <span>Bacharelado em Ciência da Computação, 2003</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
